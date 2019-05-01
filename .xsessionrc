@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Load resources
+xrdb -merge .Xresources
+
+#Apps
+compton -b &
+xsetroot -cursor_name left_ptr &
+setxkbmap -layout "us,lt,ru" -option "grp:ctrl_shift_toggle"
+xautolock -time 10 -locker 'slock' &
+feh --bg-scale /home/mindaugas/Pictures/manjaro-adapta-maia-1.jpg
+
+
+exec stumpwm 
