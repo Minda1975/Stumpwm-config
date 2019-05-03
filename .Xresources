@@ -16,45 +16,33 @@ XTerm*faceSize: 11
 
 Xcursor.theme: Maia
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
 
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
+*background:              #f0fff0
+*foreground:              #326B6B
+*cursorColor:             #225522
+*cursorColor2:            #f0fff0
 
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
+*pointerColorBackground:  #93a1a1
+*pointerColorForeground:  #586e75
+*highlightColor:          #EEEEA0
+*highlightTextColor:      #326B6B
 
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
-
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
-
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
-
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
-
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+*color0:                  #cccccc
+*color1:                  #4e9a06
+*color2:                  #859900
+*color3:                  #ce5c00
+*color4:                  #268bd2
+*color5:                  #d33682
+*color6:                  #22aa22
+*color7:                  #009292
+*color8:                  #ef2929
+*color9:                  #b8860b
+*color10:                 #119911
+*color11:                 #00A86B
+*color12:                 #3063EA
+*color13:                 #a020f0
+*color14:                 #225522
+*color15:                 #EEEEA0
 
 URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 
@@ -63,13 +51,9 @@ URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
 ! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
-URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
-URxvt*scrollBar:                  false
+URxvt*scrollBar:                  true
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines

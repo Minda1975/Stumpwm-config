@@ -4,6 +4,13 @@
 
 (in-package :stumpwm)
 
+(set-module-dir "/home/mindaugas/.stumpwm.d/contrib")
+
+(load-module "mpd")
+(load-module "cpu")
+(load-module "mem")
+(load-module "kbd-layouts")
+
 ;; Set message
 (setq *startup-message* "^5Lisp ^2^bsystem operational.")
 
@@ -26,8 +33,17 @@
 (set-focus-color "orange")
 (set-unfocus-color "gray")
 
+;; Startup
+(stumpwm:run-shell-command
+ "xsetroot -cursor_name left_ptr")
+
+;; Screenshot
+
+(define-key *root-map* (kbd "Print")
+"exec import -window root png:$HOME/screenshot_$(date +%F_%H-%M-%S).png")
+
 ;; change the prefix key to something else
-(set-prefix-key (kbd "C-z"))
+(set-prefix-key (kbd "C-t"))
 
 ;; prompt the user for an interactive command. The first arg is an
 ;; optional initial contents.
@@ -46,6 +62,8 @@
 (define-key *root-map* (kbd "C-l") "exec slock")
 ;; Terminal
 (define-key *root-map* (kbd "c") "exec urxvt")
+;; MPD
+(define-key *root-map* (kbd "x") "mpd-connect")
 
 ;;Shutdown and poweroff
 (defcommand shutdown () () (run-shell-command "systemctl poweroff"))
@@ -57,6 +75,12 @@
 
 ;; Message window font
 (set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
+
+(setf *window-format* "%m%n%s%c")
+(setf *screen-mode-line-format* (list "[^B%n^b] [%m] %C %M  %W^>%d"))
+(setf *time-modeline-string* "%a %b %e %k:%M")
+(setf *mode-line-timeout* 2)
+(enable-mode-line (current-screen) (current-head) t)
 
 ;;; Define window placement policy...
 
