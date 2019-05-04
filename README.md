@@ -6,7 +6,7 @@ As I continue, I like this amazing window manager-Stumpwm. I decided to start st
 
 Dependencies:
 
-Imagemagick, mpd, mpc, feh...
+Imagemagick, mpd, mpc, feh, wmctrl...
 
 Screenshot
 

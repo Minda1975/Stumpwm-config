@@ -11,6 +11,7 @@
 (load-module "mem")
 (load-module "kbd-layouts")
 (load-module "end-session")
+(load-module "net")
 
 ;; Set message
 (setq *startup-message* "^5Lisp ^2^bsystem operational.")
@@ -71,8 +72,13 @@
 ;; Message window font
 (set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
 
+(setf *mode-line-background-color* "#DCDAD5")
+(setf *mode-line-foreground-color* "#222222")
+(setf *mode-line-border-width* 1)
+(setf *mode-line-border-color* "#DCDAD5")
+
 (setf *window-format* "%m%n%s%c")
-(setf *screen-mode-line-format* (list "[^B%n^b] [%m] %C %M  %W^>%d"))
+(setf *screen-mode-line-format* (list "[^B%n^b] [%m] %C %l %M  %W^>%d"))
 (setf *time-modeline-string* "%a %b %e %k:%M")
 (setf *mode-line-timeout* 2)
 (enable-mode-line (current-screen) (current-head) t)
