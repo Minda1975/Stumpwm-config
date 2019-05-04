@@ -10,6 +10,7 @@
 (load-module "cpu")
 (load-module "mem")
 (load-module "kbd-layouts")
+(load-module "end-session")
 
 ;; Set message
 (setq *startup-message* "^5Lisp ^2^bsystem operational.")
@@ -64,14 +65,8 @@
 (define-key *root-map* (kbd "c") "exec urxvt")
 ;; MPD
 (define-key *root-map* (kbd "x") "mpd-connect")
-
-;;Shutdown and poweroff
-(defcommand shutdown () () (run-shell-command "systemctl poweroff"))
-(defcommand reboot () () (run-shell-command "systemctl reboot"))
-
-;;Music daemon
-(defcommand play () () (run-shell-command "mpc play"))
-(defcommand stop () () (run-shell-command "mpc stop"))
+(define-key *root-map* (kbd "o") "mpd-stop")
+(define-key *root-map* (kbd "p") "mpd-play")
 
 ;; Message window font
 (set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
