@@ -11,3 +11,4 @@ Imagemagick, mpd, mpc, feh, wmctrl...
 Screenshot
 
 ![Screenshot](screen.png?raw=true "Bussy")
+![Please do not theme this app](https://stopthemingmy.app/badge.svg)
