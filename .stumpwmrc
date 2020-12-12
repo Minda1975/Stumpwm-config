@@ -4,116 +4,20 @@
 
 (in-package :stumpwm)
 
-(set-module-dir "/home/mindaugas/.stumpwm.d/contrib")
-
-(load-module "mpd")
-(load-module "cpu")
-(load-module "mem")
-(load-module "kbd-layouts")
-(load-module "end-session")
-(load-module "net")
-
 ;; Set message
 (setq *startup-message* "^5Lisp ^2^bsystem operational.")
-
-;; Message window gravity
-(setq *message-window-gravity* :center)
-
-;; Input window gravity
-(setq *input-window-gravity* :center)
-
-(set-bg-color "#F0FFF0")
-(set-fg-color "#326B6B")
-
-(set-win-bg-color "#DCDAD5")
-
-;; Set the border color for the message bar and input bar.
-(set-border-color "#555555")
-
-;; Set the border color for focused windows. This is only used when there is
-;; more than one frame.
-(set-focus-color "orange")
-(set-unfocus-color "gray")
 
 ;; Startup
 (stumpwm:run-shell-command
  "xsetroot -cursor_name left_ptr")
 
+(stumpwm:run-shell-command
+ "xscreensaver -nosplash")
+ 
 ;; Screenshot
 
 (define-key *root-map* (kbd "Print")
 "exec import -window root png:$HOME/screenshot_$(date +%F_%H-%M-%S).png")
 
-;; change the prefix key to something else
-(set-prefix-key (kbd "C-t"))
 
-;; prompt the user for an interactive command. The first arg is an
-;; optional initial contents.
-(defcommand colon1 (&optional (initial "")) (:rest)
-  (let ((cmd (read-one-line (current-screen) ": " :initial-input initial)))
-    (when cmd
-      (eval-command cmd t))))
 
-;; Read some doc
-(define-key *root-map* (kbd "d") "exec zathura")
-;; Browse somewhere
-(define-key *root-map* (kbd "b") "colon1 exec x-www-browser http://www.")
-;; Ssh somewhere
-(define-key *root-map* (kbd "C-s") "colon1 exec x-terminal-emulator -e ssh ")
-;; Lock screen
-(define-key *root-map* (kbd "C-l") "exec slock")
-;; Terminal
-(define-key *root-map* (kbd "c") "exec urxvt")
-;; MPD
-(define-key *root-map* (kbd "x") "mpd-connect")
-(define-key *root-map* (kbd "o") "mpd-stop")
-(define-key *root-map* (kbd "p") "mpd-play")
-
-;; Message window font
-(set-font "-xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15")
-
-(setf *mode-line-background-color* "#DCDAD5")
-(setf *mode-line-foreground-color* "#222222")
-(setf *mode-line-border-width* 1)
-(setf *mode-line-border-color* "#DCDAD5")
-
-(setf *window-format* "%m%n%s%c")
-(setf *screen-mode-line-format* (list "[^B%n^b] [%m] %C %l %M  %W^>%d"))
-(setf *time-modeline-string* "%a %b %e %k:%M")
-(setf *mode-line-timeout* 2)
-(enable-mode-line (current-screen) (current-head) t)
-
-;;; Define window placement policy...
-
-;; Clear rules
-(clear-window-placement-rules)
-
-;; Last rule to match takes precedence!
-;; TIP: if the argument to :title or :role begins with an ellipsis, a substring
-;; match is performed.
-;; TIP: if the :create flag is set then a missing group will be created and
-;; restored from *data-dir*/create file.
-;; TIP: if the :restore flag is set then group dump is restored even for an
-;; existing group using *data-dir*/restore file.
-(define-frame-preference "Default"
-  ;; frame raise lock (lock AND raise == jumpto)
-  (0 t nil :class "Konqueror" :role "...konqueror-mainwindow")
-  (1 t nil :class "XTerm"))
-
-(define-frame-preference "Ardour"
-  (0 t   t   :instance "ardour_editor" :type :normal)
-  (0 t   t   :title "Ardour - Session Control")
-  (0 nil nil :class "XTerm")
-  (1 t   nil :type :normal)
-  (1 t   t   :instance "ardour_mixer")
-  (2 t   t   :instance "jvmetro")
-  (1 t   t   :instance "qjackctl")
-  (3 t   t   :instance "qjackctl" :role "qjackctlMainForm"))
-
-(define-frame-preference "Shareland"
-  (0 t   nil :class "XTerm")
-  (1 nil t   :class "aMule"))
-
-(define-frame-preference "Emacs"
-  (1 t t :restore "emacs-editing-dump" :title "...xdvi")
-  (0 t t :create "emacs-dump" :class "Emacs"))

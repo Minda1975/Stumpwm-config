@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Load resources
-xrdb -merge .Xresources
+setxkbmap -layout "us,lt,ru" -option "grp:ctrl_shift_toggle"
 
-#Apps
-compton -b &
-xautolock -time 10 -locker 'slock' &
-feh --bg-scale /home/mindaugas/Pictures/desktop.jpg
+exec stumpwm
 
-exec stumpwm 
+
+
+
