@@ -1,6 +1,6 @@
 #!/bin/bash
 
-setxkbmap -layout "us,lt,ru" -option "grp:ctrl_shift_toggle"
+setxkbmap -layout "us,lt,ru" -option "grp:ctrl_alt_toggle"
 
 exec stumpwm
 
