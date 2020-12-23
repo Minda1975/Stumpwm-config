@@ -1,4 +1,4 @@
-URxvt.font: xft:Monospace:size=10
+URxvt.font: xft:DejaVu Sans Mono:size=10
 URxvt.scrollBar: false
 
 *colorUl:           #1378ab
@@ -31,13 +31,13 @@ URxvt.scrollBar: false
 XTerm*background:        #000000
 XTerm*foreground:        #ffffff
 XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
+XTerm*faceName:          DejaVu Sans Mono
 XTerm*faceSize:          11
 
 
 
 !UXTerm
-UXTerm*faceName: Fixed
+UXTerm*faceName: DejaVu Sans Mono
 UXTerm*faceSize: 10
 UXTerm*background:        #000000
 UXTerm*foreground:        #ffffff

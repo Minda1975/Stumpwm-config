@@ -5,7 +5,7 @@
 (in-package :stumpwm)
 
 ;; Set message
-(setq *startup-message* "^5Lisp ^2^bsystem operational.")
+(setq *startup-message* "^6Happy hacking, ^3Mindaugas.")
 
 ;; Startup
 (stumpwm:run-shell-command
