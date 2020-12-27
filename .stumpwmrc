@@ -7,22 +7,20 @@
 ;; Set message
 (setq *startup-message* "^6Happy hacking, ^3Mindaugas.")
 
-;; Prefix key
-(set-prefix-key (kbd "Menu"))
-
 ;; Startup
 (stumpwm:run-shell-command
  "xsetroot -cursor_name left_ptr")
 
 (stumpwm:run-shell-command
  "xscreensaver -nosplash")
+
+(stumpwm:run-shell-command
+ "feh --bg-fill ~/Pictures/minimalist.jpg")
  
 ;; Screenshot
 
 (define-key *root-map* (kbd "Print")
- "exec import -window root png:$HOME/screenshot_$(date +%F_%H-%M-%S).png")
+  "exec import -window root png:$HOME/screenshot_$(date +%F_%H-%M-%S).png")
 
-;; Terminator
 
-(define-key *root-map* (kbd "c")
-"exec terminator")
+(define-key *root-map* (kbd "C") "exec terminator")
